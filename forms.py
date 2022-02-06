@@ -6,4 +6,4 @@ class indexForm(FlaskForm):
     name = StringField('Player Name', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     phrase = StringField('Winning Phrase', validators=[DataRequired()])
-    submit = StringField('Enter the Game')
+    submit = SubmitField('Enter the Game')

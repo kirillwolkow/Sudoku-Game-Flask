@@ -1,0 +1,30 @@
+{%extends "base.html"%}
+
+{%block title%}Flask Sudoku Game - Welcome Page{%endblock%}
+
+{%block content%}
+<h1>Welcome to the Flask Sudoku Game</h1>
+<p>Made by Kenny Wolf aka kirillwolkow</p>
+
+<div>
+    <form action="/" method="POST">
+        {{ template_form.hidden_tag() }}
+        <p>
+            {{ template_form.name.label }}
+            {{ template_form.name() }}
+        </p>
+        <p>
+            {{ template_form.city.label }}
+            {{ template_form.city() }}
+        </p>
+        <p>
+            {{ template_form.phrase.label }}
+            {{ template_form.phrase() }}
+        </p>
+        <p>
+            {{ template_form.submit() }}
+        </p>
+    </form>
+</div>
+
+{%endblock%}

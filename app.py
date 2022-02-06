@@ -5,27 +5,26 @@ from forms import indexForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
-app.run(debug=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    index_form = indexForm()
+    index_form = indexForm(csrf_enabled=False)
     if request.method == 'POST':
         if index_form.validate_on_submit():
             name = index_form.name.data
             city = index_form.city.data
             phrase = index_form.phrase.data
-            return redirect(url_for("play", name=name, city=city, phrase=phrase))
+            return redirect(url_for("play", name=name, city=city, phrase=phrase, _external=True))
     return render_template("index.html", template_form=index_form)
 
-@app.route('/play')
+@app.route('/play', methods=['GET', 'POST'])
 def play():
-    return url_for(render_template("play"))
+    return render_template("play.html")
 
-@app.route('/win')
+@app.route('/win', methods=['GET', 'POST'])
 def win():
-    return "Game"
+    return render_template("win.html")
 
-@app.route('/lose')
+@app.route('/lose', methods=['GET', 'POST'])
 def lose():
-    return "Game"
+    return render_template("lose.html")
