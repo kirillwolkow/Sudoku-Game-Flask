@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+Flask Sudoku Game - Board Page
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for row in puzzle %}
+        {% for num in row %}
+        <p>{{num}}</p>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endblock %}

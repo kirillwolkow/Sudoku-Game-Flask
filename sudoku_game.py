@@ -36,17 +36,18 @@ class SudokuGenerator:
 	def generate_puzzle(self):
 		"""generates a new puzzle and solves it"""
 		self.generate_solution(self.grid)
-		self.print_grid('full solution')
+		#self.print_grid('full solution')
 		self.remove_numbers_from_grid()
-		self.print_grid('with removed numbers')
-		return
+		puzzle = self.print_grid('with removed numbers')
+		print(type(puzzle))
+		return puzzle
 
 	def print_grid(self, grid_name=None):
 		if grid_name:
 			print(grid_name)
 		for row in self.grid:
 			print(row)
-		return
+		return 
 
 	def test_sudoku(self,grid):
 		"""tests each square to make sure it is a valid puzzle"""

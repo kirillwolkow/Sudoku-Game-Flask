@@ -1,5 +1,6 @@
 from flask import Flask, redirect, request, url_for, render_template
 from sudoku_game import SudokuGenerator
+from sudoku import sudoku
 from forms import indexForm
 
 
@@ -14,7 +15,7 @@ def index():
             name = index_form.name.data
             city = index_form.city.data
             phrase = index_form.phrase.data
-            return redirect(url_for("play", name=name, city=city, phrase=phrase, _external=True))
+            return redirect(url_for("play", name=name, city=city, phrase=phrase, _external=True, _schema='https'))
     return render_template("index.html", template_form=index_form)
 
 @app.route('/play', methods=['GET', 'POST'])
